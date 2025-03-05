@@ -224,7 +224,7 @@ export default function Home() {
       <Head>
         <title>Wordle Clone</title>
         <meta name="description" content="A Wordle Clone game built with Next.js" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/wordle-favicon.svg" />
       </Head>
@@ -233,11 +233,11 @@ export default function Home() {
           <h1 className="text-2xl sm:text-3xl font-bold text-center">Wordle Clone</h1>
         </header>
         
-        <main className="flex-1 w-full max-w-lg mx-auto px-3 sm:px-4 flex flex-col items-center justify-between">
+        <main className="flex-1 w-full max-w-lg mx-auto px-3 sm:px-4 flex flex-col items-center justify-between pb-safe">
           <div className="mt-2 sm:mt-4 mb-4">
             <Board board={board} />
           </div>
-          <div className="mt-auto mb-3 sm:mb-4 w-full">
+          <div className="mt-auto w-full pb-4 md:pb-0">
             <Keyboard keyStates={keyStates} onKeyPress={handleKeyPress} />
           </div>
         </main>

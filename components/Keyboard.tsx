@@ -45,7 +45,7 @@ const Keyboard: React.FC<KeyboardProps> = ({ keyStates, onKeyPress }) => {
   };
 
   return (
-    <div className="w-full max-w-sm mx-auto mb-4">
+    <div className="w-full max-w-sm mx-auto">
       <div className="flex flex-col space-y-2">
         {/* First row */}
         <div className="flex justify-center space-x-1.5">
