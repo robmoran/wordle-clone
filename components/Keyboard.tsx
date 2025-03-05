@@ -24,12 +24,12 @@ const Keyboard: React.FC<KeyboardProps> = ({ keyStates, onKeyPress }) => {
   const getKeyClass = (key: string): string => {
     const status = getKeyState(key);
     
-    const baseClasses = "m-0.5 sm:m-1 rounded font-bold uppercase flex items-center justify-center";
+    const baseClasses = "m-1 rounded font-bold uppercase flex items-center justify-center";
     
     if (key === 'ENTER') {
-      return `${baseClasses} text-xs sm:text-sm h-10 sm:h-12 flex-grow`;
+      return `${baseClasses} text-xs sm:text-sm h-12 flex-grow`;
     } else if (key === 'BACKSPACE') {
-      return `${baseClasses} text-xs sm:text-sm h-10 sm:h-12 flex-grow`;
+      return `${baseClasses} text-xs sm:text-sm h-12 flex-grow`;
     }
     
     const statusClasses = {
@@ -39,13 +39,13 @@ const Keyboard: React.FC<KeyboardProps> = ({ keyStates, onKeyPress }) => {
       [LetterStatus.EMPTY]: "bg-gray-300 text-black dark:bg-gray-600 dark:text-white"
     };
     
-    return `${baseClasses} w-[8vw] sm:w-10 h-10 sm:h-12 ${statusClasses[status]}`;
+    return `${baseClasses} w-[9vw] sm:w-10 h-12 ${statusClasses[status]}`;
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto mb-4 px-1 sm:px-0">
+    <div className="w-full max-w-lg mx-auto mb-4 px-2">
       {rows.map((row, rowIndex) => (
-        <div key={rowIndex} className="flex justify-center mb-1 sm:mb-2">
+        <div key={rowIndex} className="flex justify-center mb-2">
           {row.map((key) => (
             <button
               key={key}

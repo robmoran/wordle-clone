@@ -228,13 +228,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col items-center">
-        <header className="w-full bg-white dark:bg-gray-800 shadow-md py-4 mb-4 sm:mb-8">
+        <header className="w-full bg-white dark:bg-gray-800 shadow-md py-4 mb-4 sm:mb-6">
           <h1 className="text-2xl sm:text-3xl font-bold text-center">Wordle Clone</h1>
         </header>
         
-        <main className="flex-1 w-full sm:max-w-md mx-auto px-2 sm:px-4 flex flex-col items-center">
-          <Board board={board} />
-          <Keyboard keyStates={keyStates} onKeyPress={handleKeyPress} />
+        <main className="flex-1 w-full max-w-lg mx-auto px-3 sm:px-4 flex flex-col items-center justify-between">
+          <div className="mt-2 sm:mt-4 mb-4">
+            <Board board={board} />
+          </div>
+          <div className="mt-auto mb-3 sm:mb-4 w-full">
+            <Keyboard keyStates={keyStates} onKeyPress={handleKeyPress} />
+          </div>
         </main>
         
         {(gameStatus !== GameStatus.PLAYING || message) && (
