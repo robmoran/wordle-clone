@@ -224,7 +224,7 @@ export default function Home() {
       <Head>
         <title>Wordle Clone</title>
         <meta name="description" content="A Wordle Clone game built with Next.js" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/wordle-favicon.svg" />
       </Head>
@@ -233,13 +233,24 @@ export default function Home() {
           <h1 className="text-2xl sm:text-3xl font-bold text-center">Wordle Clone</h1>
         </header>
         
-        <main className="flex-1 w-full max-w-lg mx-auto px-3 sm:px-4 flex flex-col items-center justify-between">
-          <div className="mt-2 sm:mt-4 mb-4">
+        <main className="flex-1 w-full max-w-lg mx-auto px-3 sm:px-4 flex flex-col items-center">
+          {/* Board is always at the top */}
+          <div className="mt-2 sm:mt-6 mb-4">
             <Board board={board} />
           </div>
-          <div className="mt-auto mb-3 sm:mb-4 w-full">
+          
+          {/* For mobile: Position keyboard at bottom of viewport with padding */}
+          <div className="sm:hidden fixed bottom-0 left-0 right-0 w-full bg-gray-100 dark:bg-gray-900 pt-2" style={{paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 28px)'}}>
             <Keyboard keyStates={keyStates} onKeyPress={handleKeyPress} />
           </div>
+          
+          {/* For desktop/tablet: Position keyboard directly below board with margin */}
+          <div className="hidden sm:block mt-8">
+            <Keyboard keyStates={keyStates} onKeyPress={handleKeyPress} />
+          </div>
+          
+          {/* Add spacer div for mobile to prevent content from being hidden behind keyboard */}
+          <div className="h-[230px] sm:hidden"></div>
         </main>
         
         {(gameStatus !== GameStatus.PLAYING || message) && (
