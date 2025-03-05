@@ -37,39 +37,6 @@ export default function Home() {
   const [keyStates, setKeyStates] = useState<KeyboardKey[]>(createEmptyKeyboard());
   const [message, setMessage] = useState<string | null>(null);
 
-  // Initialize game
-  useEffect(() => {
-    resetGame();
-  }, []);
-
-  // Handle keyboard input
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (gameStatus !== GameStatus.PLAYING) return;
-      
-      const key = e.key.toUpperCase();
-      
-      // Handle letter keys (A-Z)
-      if (/^[A-Z]$/.test(key)) {
-        handleLetterInput(key);
-      } 
-      // Handle Enter key
-      else if (key === 'ENTER') {
-        handleEnterKey();
-      } 
-      // Handle Backspace/Delete key
-      else if (key === 'BACKSPACE' || key === 'DELETE') {
-        handleBackspace();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [gameStatus, currentRow, currentCol, board]);
-
   // Reset the game
   const resetGame = useCallback(() => {
     const newTargetWord = getRandomWord();
@@ -84,8 +51,13 @@ export default function Home() {
     setMessage(null);
   }, []);
 
+  // Initialize game
+  useEffect(() => {
+    resetGame();
+  }, [resetGame]);
+
   // Handle letter input (A-Z)
-  const handleLetterInput = (letter: string) => {
+  const handleLetterInput = useCallback((letter: string) => {
     if (currentCol < WORD_LENGTH) {
       const newBoard = [...board];
       newBoard[currentRow][currentCol] = {
@@ -96,10 +68,10 @@ export default function Home() {
       setBoard(newBoard);
       setCurrentCol(currentCol + 1);
     }
-  };
+  }, [board, currentCol, currentRow]);
 
   // Handle backspace key press
-  const handleBackspace = () => {
+  const handleBackspace = useCallback(() => {
     if (currentCol > 0) {
       const newBoard = [...board];
       newBoard[currentRow][currentCol - 1] = {
@@ -110,10 +82,10 @@ export default function Home() {
       setBoard(newBoard);
       setCurrentCol(currentCol - 1);
     }
-  };
+  }, [board, currentCol, currentRow]);
 
   // Handle enter key press
-  const handleEnterKey = () => {
+  const handleEnterKey = useCallback(() => {
     // Check if the row is complete
     if (currentCol < WORD_LENGTH) {
       setMessage("Word must be 5 letters");
@@ -204,10 +176,10 @@ export default function Home() {
     } else {
       setGameStatus(GameStatus.LOST);
     }
-  };
+  }, [board, currentCol, currentRow, targetWord, keyStates]);
 
   // Handle on-screen keyboard press
-  const handleKeyPress = (key: string) => {
+  const handleKeyPress = useCallback((key: string) => {
     if (gameStatus !== GameStatus.PLAYING) return;
     
     if (key === 'ENTER') {
@@ -217,7 +189,35 @@ export default function Home() {
     } else {
       handleLetterInput(key);
     }
-  };
+  }, [gameStatus, handleEnterKey, handleBackspace, handleLetterInput]);
+
+  // Handle keyboard input
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (gameStatus !== GameStatus.PLAYING) return;
+      
+      const key = e.key.toUpperCase();
+      
+      // Handle letter keys (A-Z)
+      if (/^[A-Z]$/.test(key)) {
+        handleLetterInput(key);
+      } 
+      // Handle Enter key
+      else if (key === 'ENTER') {
+        handleEnterKey();
+      } 
+      // Handle Backspace/Delete key
+      else if (key === 'BACKSPACE' || key === 'DELETE') {
+        handleBackspace();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [gameStatus, currentRow, currentCol, board, handleLetterInput, handleEnterKey, handleBackspace]);
 
   return (
     <>
