@@ -1,5 +1,5 @@
 import React from 'react';
-import { LetterState, LetterStatus } from '../types';
+import { LetterState, LetterStatus } from '@/types';
 
 interface BoardProps {
   board: LetterState[][];
@@ -23,13 +23,13 @@ const Board: React.FC<BoardProps> = ({ board }) => {
   };
 
   return (
-    <div className="grid grid-rows-6 gap-1 mb-4 mx-auto">
+    <div className="mb-5 mx-auto">
       {board.map((row, rowIndex) => (
-        <div key={rowIndex} className="grid grid-cols-5 gap-1 mx-auto">
+        <div key={rowIndex} className="flex justify-center mb-2">
           {row.map((letterState, colIndex) => (
             <div
               key={`${rowIndex}-${colIndex}`}
-              className={getLetterClass(letterState.status)}
+              className={`${getLetterClass(letterState.status)} mx-1`}
             >
               {letterState.letter}
             </div>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- First tile (green - correct) -->
+  <rect x="5" y="5" width="33" height="33" rx="5" ry="5" fill="#6aaa64" stroke="#6aaa64" stroke-width="2"/>
+  <text x="21.5" y="30" font-family="Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="middle" fill="white">W</text>
+  
+  <!-- Second tile (yellow - present) -->
+  <rect x="43" y="5" width="33" height="33" rx="5" ry="5" fill="#c9b458" stroke="#c9b458" stroke-width="2"/>
+  <text x="59.5" y="30" font-family="Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="middle" fill="white">O</text>
+  
+  <!-- Third tile (gray - absent) -->
+  <rect x="81" y="5" width="33" height="33" rx="5" ry="5" fill="#787c7e" stroke="#787c7e" stroke-width="2"/>
+  <text x="97.5" y="30" font-family="Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="middle" fill="white">R</text>
+  
+  <!-- Fourth tile (green - correct) -->
+  <rect x="5" y="43" width="33" height="33" rx="5" ry="5" fill="#6aaa64" stroke="#6aaa64" stroke-width="2"/>
+  <text x="21.5" y="68" font-family="Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="middle" fill="white">D</text>
+  
+  <!-- Fifth tile (yellow - present) -->
+  <rect x="43" y="43" width="33" height="33" rx="5" ry="5" fill="#c9b458" stroke="#c9b458" stroke-width="2"/>
+  <text x="59.5" y="68" font-family="Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="middle" fill="white">L</text>
+  
+  <!-- Sixth tile (empty) -->
+  <rect x="81" y="43" width="33" height="33" rx="5" ry="5" fill="#ffffff" stroke="#d3d6da" stroke-width="2"/>
+  <text x="97.5" y="68" font-family="Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="middle" fill="#000000">E</text>
+  
+  <!-- Bottom row empty tiles -->
+  <rect x="5" y="81" width="33" height="33" rx="5" ry="5" fill="none" stroke="#d3d6da" stroke-width="2"/>
+  <rect x="43" y="81" width="33" height="33" rx="5" ry="5" fill="none" stroke="#d3d6da" stroke-width="2"/>
+  <rect x="81" y="81" width="33" height="33" rx="5" ry="5" fill="none" stroke="#d3d6da" stroke-width="2"/>
+</svg>
