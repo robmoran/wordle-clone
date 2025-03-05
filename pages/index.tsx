@@ -225,7 +225,8 @@ export default function Home() {
         <title>Wordle Clone</title>
         <meta name="description" content="A Wordle Clone game built with Next.js" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/wordle-favicon.svg" />
       </Head>
       <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col items-center">
         <header className="w-full bg-white dark:bg-gray-800 shadow-md py-4 mb-4 sm:mb-6">
