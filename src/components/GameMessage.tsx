@@ -29,6 +29,20 @@ const GameMessage: React.FC<GameMessageProps> = ({
     showResetButton = true;
   }
 
+  // Simple notification for invalid words
+  if (gameStatus === GameStatus.PLAYING && message) {
+    return (
+      <div className="fixed top-20 left-0 right-0 flex justify-center z-50">
+        <div className="bg-white dark:bg-gray-800 py-2 px-4 rounded-lg shadow-lg">
+          <p className="text-gray-800 dark:text-white font-medium">
+            {messageText}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  // Full modal for game over states
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-md w-full">
@@ -36,23 +50,12 @@ const GameMessage: React.FC<GameMessageProps> = ({
           {messageText}
         </h2>
         
-        {showResetButton && (
-          <button
-            onClick={resetGame}
-            className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
-          >
-            Play Again
-          </button>
-        )}
-        
-        {!showResetButton && (
-          <button
-            onClick={() => window.location.reload()}
-            className="w-full py-2 px-4 bg-gray-500 text-white font-semibold rounded-lg hover:bg-gray-600 transition duration-200"
-          >
-            Dismiss
-          </button>
-        )}
+        <button
+          onClick={resetGame}
+          className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
+        >
+          Play Again
+        </button>
       </div>
     </div>
   );
