@@ -7,7 +7,7 @@ interface BoardProps {
 
 const Board: React.FC<BoardProps> = ({ board }) => {
   const getLetterClass = (status: LetterStatus): string => {
-    const baseClasses = "w-12 h-12 sm:w-16 sm:h-16 border-2 flex items-center justify-center text-2xl font-bold uppercase";
+    const baseClasses = "w-[14vw] h-[14vw] sm:w-14 sm:h-14 md:w-16 md:h-16 border-2 flex items-center justify-center text-xl sm:text-2xl font-bold uppercase";
     
     switch (status) {
       case LetterStatus.CORRECT:
@@ -23,7 +23,7 @@ const Board: React.FC<BoardProps> = ({ board }) => {
   };
 
   return (
-    <div className="grid grid-rows-6 gap-1 mb-4 mx-auto">
+    <div className="grid grid-rows-6 gap-1 mb-4 w-full max-w-xs sm:max-w-md mx-auto">
       {board.map((row, rowIndex) => (
         <div key={rowIndex} className="grid grid-cols-5 gap-1">
           {row.map((letterState, colIndex) => (

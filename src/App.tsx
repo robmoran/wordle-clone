@@ -220,11 +220,11 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col items-center">
-      <header className="w-full bg-white dark:bg-gray-800 shadow-md py-4 mb-8">
-        <h1 className="text-3xl font-bold text-center">Wordle Clone</h1>
+      <header className="w-full bg-white dark:bg-gray-800 shadow-md py-4 mb-4 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl font-bold text-center">Wordle Clone</h1>
       </header>
       
-      <main className="flex-1 w-full max-w-md mx-auto px-4 flex flex-col items-center">
+      <main className="flex-1 w-full sm:max-w-md mx-auto px-2 sm:px-4 flex flex-col items-center">
         <Board board={board} />
         <Keyboard keyStates={keyStates} onKeyPress={handleKeyPress} />
       </main>

@@ -32,8 +32,8 @@ const GameMessage: React.FC<GameMessageProps> = ({
   // Simple notification for invalid words
   if (gameStatus === GameStatus.PLAYING && message) {
     return (
-      <div className="fixed top-20 left-0 right-0 flex justify-center z-50">
-        <div className="bg-white dark:bg-gray-800 py-2 px-4 rounded-lg shadow-lg">
+      <div className="fixed top-16 sm:top-20 left-2 right-2 flex justify-center z-50">
+        <div className="bg-white dark:bg-gray-800 py-2 px-4 rounded-lg shadow-lg w-full max-w-xs sm:max-w-sm text-center">
           <p className="text-gray-800 dark:text-white font-medium">
             {messageText}
           </p>
@@ -44,9 +44,9 @@ const GameMessage: React.FC<GameMessageProps> = ({
 
   // Full modal for game over states
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-md w-full">
-        <h2 className="text-2xl font-bold mb-4 text-center text-gray-800 dark:text-white">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
+      <div className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-lg shadow-lg w-full max-w-xs sm:max-w-md">
+        <h2 className="text-xl sm:text-2xl font-bold mb-4 text-center text-gray-800 dark:text-white">
           {messageText}
         </h2>
         
