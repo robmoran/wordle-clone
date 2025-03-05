@@ -1,6 +1,6 @@
 # Wordle Clone
 
-A React implementation of the popular word-guessing game Wordle, built with TypeScript and styled with Tailwind CSS.
+A fully functional Wordle clone built with Next.js, TypeScript, and TailwindCSS, optimized for deployment on Vercel.
 
 ## Features
 
@@ -23,10 +23,10 @@ A React implementation of the popular word-guessing game Wordle, built with Type
 
 ## Technologies Used
 
-- React
+- Next.js
 - TypeScript
 - Tailwind CSS
-- Create React App
+- React
 
 ## Getting Started
 
@@ -50,16 +50,25 @@ A React implementation of the popular word-guessing game Wordle, built with Type
 
 3. Start the development server
    ```
-   npm start
+   npm run dev
    ```
 
 4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser
 
 ## Available Scripts
 
-- `npm start` - Runs the app in development mode
-- `npm test` - Launches the test runner
-- `npm run build` - Builds the app for production to the `build` folder
+- `npm run dev` - Runs the app in development mode
+- `npm run build` - Builds the app for production
+- `npm start` - Starts the production server
+- `npm run lint` - Runs linting
+
+## Deploy on Vercel
+
+The easiest way to deploy this Next.js app is to use the [Vercel Platform](https://vercel.com/new).
+
+1. Push this repository to GitHub
+2. Import the repository on Vercel
+3. Vercel will automatically deploy the app
 
 ## Future Improvements
 
@@ -77,4 +86,4 @@ MIT
 ## Acknowledgements
 
 - Inspired by [Wordle](https://www.nytimes.com/games/wordle/index.html) by Josh Wardle
-- Built with [React](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/), and [Tailwind CSS](https://tailwindcss.com/)
+- Built with [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), and [Tailwind CSS](https://tailwindcss.com/)
