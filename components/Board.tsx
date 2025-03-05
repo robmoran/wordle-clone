@@ -1,5 +1,5 @@
 import React from 'react';
-import { LetterState, LetterStatus } from '../types';
+import { LetterState, LetterStatus } from '@/types';
 
 interface BoardProps {
   board: LetterState[][];
@@ -7,7 +7,7 @@ interface BoardProps {
 
 const Board: React.FC<BoardProps> = ({ board }) => {
   const getLetterClass = (status: LetterStatus): string => {
-    const baseClasses = "w-[15vw] h-[15vw] max-w-16 max-h-16 border-2 flex items-center justify-center text-xl sm:text-2xl font-bold uppercase";
+    const baseClasses = "w-14 h-14 sm:w-16 sm:h-16 border-2 flex items-center justify-center text-xl sm:text-2xl font-bold uppercase";
     
     switch (status) {
       case LetterStatus.CORRECT:
@@ -23,13 +23,13 @@ const Board: React.FC<BoardProps> = ({ board }) => {
   };
 
   return (
-    <div className="grid grid-rows-6 gap-2 mb-5 mx-auto">
+    <div className="mb-5 mx-auto">
       {board.map((row, rowIndex) => (
-        <div key={rowIndex} className="grid grid-cols-5 gap-2 mx-auto">
+        <div key={rowIndex} className="flex justify-center mb-2">
           {row.map((letterState, colIndex) => (
             <div
               key={`${rowIndex}-${colIndex}`}
-              className={getLetterClass(letterState.status)}
+              className={`${getLetterClass(letterState.status)} mx-1`}
             >
               {letterState.letter}
             </div>
